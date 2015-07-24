@@ -37,5 +37,8 @@ Creep.prototype.WorkerCreepHarvestCycle = function ()
 }
 
 
-if(typeof Game.creeps.Worker1 === 'undefined')        Game.spawns.Spawn1.createCreep( [WORK, CARRY, MOVE], 'Worker1' );
-if(typeof Game.creeps.Worker1.memory !== 'undefined') Game.creeps.Worker1.WorkerCreepHarvestCycle();
+if(typeof Game.creeps.Worker1 === 'undefined') Game.spawns.Spawn1.createCreep( [WORK, CARRY, MOVE], 'Worker1' );
+else Game.creeps.Worker1.WorkerCreepHarvestCycle();
+
+if(typeof Game.creeps.Worker2 === 'undefined') Game.spawns.Spawn1.createCreep( [WORK, CARRY, MOVE], 'Worker1' );
+else Game.creeps.Worker2.WorkerCreepHarvestCycle();
