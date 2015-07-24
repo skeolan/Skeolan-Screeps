@@ -42,3 +42,6 @@ else Game.creeps.Worker1.WorkerCreepHarvestCycle();
 
 if(typeof Game.creeps.Worker2 === 'undefined') Game.spawns.Spawn1.createCreep( [WORK, CARRY, MOVE], 'Worker2' );
 else Game.creeps.Worker2.WorkerCreepHarvestCycle();
+
+if(typeof Game.creeps.Worker3 === 'undefined') Game.spawns.Spawn1.createCreep( [WORK, CARRY, MOVE], 'Worker3' );
+else Game.creeps.Worker3.WorkerCreepHarvestCycle();
