@@ -11,7 +11,7 @@ You give orders to a creep by its name this way: Game.creeps.Worker1.
 Creep.prototype.WorkerCreepHarvestCycle = function () 
 {
     var myDest   = Game.getObjectById(this.memory.myDest.id);
-    //var mySource = Game.getObjectById(this.memory.mySource.id);
+    var mySource = Game.getObjectById(this.memory.mySource.id);
     /*
     var mySpawn  = Game.getObjectById(this.memory.mySpawn.id);
     
