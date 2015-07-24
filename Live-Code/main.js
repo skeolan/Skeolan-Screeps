@@ -10,9 +10,12 @@ You give orders to a creep by its name this way: Game.creeps.Worker1.
 
 Creep.prototype.WorkerCreepHarvestCycle = function () 
 {
+    if(typeof Game.creeps.Worker1.memory.mySource === 'undefined') Game.creeps.Worker1.memory.mySource=Game.creeps.Worker1.pos.findClosestByRange(FIND_SOURCES);
+    if(typeof Game.creeps.Worker1.memory.mySpawn  === 'undefined') Game.creeps.Worker1.memory.mySpawn =Game.creeps.Worker1.pos.findClosestByRange(FIND_MY_SPAWNS);
+    if(typeof Game.creeps.Worker1.memory.myDest   === 'undefined') Game.creeps.Worker1.memory.myDest  =Game.creeps.Worker1.memory.mySource;
+    
     var myDest   = Game.getObjectById(this.memory.myDest.id);
     var mySource = Game.getObjectById(this.memory.mySource.id);
-    /*
     var mySpawn  = Game.getObjectById(this.memory.mySpawn.id);
     
     if(this.carry.energy == 0)
@@ -31,14 +34,8 @@ Creep.prototype.WorkerCreepHarvestCycle = function ()
     this.moveTo(myDest);
     this.harvest(myDest);
     this.transferEnergy(myDest);
-    */
 }
 
-if(typeof Game.creeps.Worker1 === 'undefined') { 
-    Game.spawns.Spawn1.createCreep( [WORK, CARRY, MOVE], 'Worker1' ); 
-    Game.creeps.Worker1.memory.mySource=Game.creeps.Worker1.pos.findClosestByRange(FIND_SOURCES);
-    Game.creeps.Worker1.memory.mySpawn =Game.creeps.Worker1.pos.findClosestByRange(FIND_MY_SPAWNS);
-    Game.creeps.Worker1.memory.myDest  =Game.creeps.Worker1.memory.mySource;
-}
 
-Game.creeps.Worker1.WorkerCreepHarvestCycle();
+if(typeof Game.creeps.Worker1 === 'undefined')        Game.spawns.Spawn1.createCreep( [WORK, CARRY, MOVE], 'Worker1' );
+if(typeof Game.creeps.Worker1.memory !== 'undefined') Game.creeps.Worker1.WorkerCreepHarvestCycle();
